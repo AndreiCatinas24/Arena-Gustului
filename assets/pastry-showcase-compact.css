@@ -1,0 +1,76 @@
+/* Compact refinement for the Arena Gustului pastry showcase. */
+.reserve-title{margin:20px 2px 8px!important}
+.reserve-title::after{margin-top:4px!important;opacity:.88!important}
+
+.reserve-groups{
+  padding:8px 8px 10px!important;
+  border-radius:26px!important;
+  border-color:rgba(239,202,139,.32)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 0 0 1px rgba(83,57,25,.18),0 12px 30px rgba(0,0,0,.22)!important;
+}
+
+/* Smaller, softer glass reflection: it should read as glass, not as a grey patch. */
+.reserve-groups::before{
+  inset:7px auto auto 9px!important;
+  width:42%!important;
+  height:17%!important;
+  border-radius:20px 46% 55% 20px!important;
+  background:linear-gradient(112deg,rgba(255,255,255,.075),rgba(255,255,255,.018) 42%,transparent 74%)!important;
+  opacity:.38!important;
+}
+.reserve-groups::after{
+  inset:5px!important;
+  border-radius:21px!important;
+  border-color:rgba(255,245,222,.045)!important;
+  box-shadow:inset 0 0 18px rgba(255,216,145,.018)!important;
+}
+
+.reserve-group{
+  padding:9px 10px 11px!important;
+}
+.reserve-group + .reserve-group{
+  border-top-color:rgba(234,193,126,.16)!important;
+}
+.reserve-group::before{
+  bottom:1px!important;
+  height:23px!important;
+  opacity:.72!important;
+}
+.reserve-group::after{
+  bottom:3px!important;
+  height:2px!important;
+  opacity:.68!important;
+}
+
+.reserve-head{
+  margin:0 2px 1px!important;
+  padding-bottom:0!important;
+}
+.reserve-head strong{font-size:19px!important}
+.reserve-head span{font-size:11px!important;color:#d7bd91!important}
+
+/* Use smaller layout boxes, then scale the artwork visually so products stay generous without making the cabinet tall. */
+.reserve-row{
+  min-height:82px!important;
+  padding:0 5px 1px!important;
+  gap:14px!important;
+}
+.reserve-row.large .L{width:32%!important;max-width:132px!important}
+.reserve-row.medium .M{width:29%!important;max-width:120px!important}
+.reserve-row.small .S{width:26%!important;max-width:106px!important}
+.reserve-row .piece{transform:scale(1.07)!important;transform-origin:center center!important}
+.reserve-row .piece:active{transform:scale(1.01)!important}
+
+@media(max-width:390px){
+  .reserve-title{margin-top:18px!important}
+  .reserve-groups{padding:7px 6px 8px!important;border-radius:24px!important}
+  .reserve-group{padding:8px 8px 9px!important}
+  .reserve-row{min-height:74px!important;gap:9px!important;padding:0 2px!important}
+  .reserve-head strong{font-size:18px!important}
+  .reserve-head span{font-size:10.5px!important}
+  .reserve-row.large .L{width:31%!important}
+  .reserve-row.medium .M{width:28%!important}
+  .reserve-row.small .S{width:25%!important}
+  .reserve-row .piece{transform:scale(1.09)!important}
+  .reserve-row .piece:active{transform:scale(1.02)!important}
+}
