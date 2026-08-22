@@ -1,4 +1,4 @@
-/* AI uses the exact same pastry artwork as the player; only the aura color differs. Cache-busted to avoid stale Safari/Vercel assets. */
-.mask-art.team-o.size-S{content:url('food/covrig-orange.webp?v=20260822f')!important}
-.mask-art.team-o.size-M{content:url('food/corn-orange.webp?v=20260822f')!important}
-.mask-art.team-o.size-L{content:url('food/merdenea-orange.webp?v=20260822f')!important}
+/* AI starts from the exact same artwork as the player. runtime-ai-aura.js recolors only the blue/cyan aura to orange in-browser. This avoids Safari decoding artifacts from separate orange WebP files. */
+.mask-art.team-o.size-S{content:url('food/covrig-blue.webp')!important}
+.mask-art.team-o.size-M{content:url('food/corn-blue.webp')!important}
+.mask-art.team-o.size-L{content:url('food/merdenea-blue.webp')!important}
