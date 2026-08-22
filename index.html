@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#05080f">
+  <title>Arena Strigoilor</title>
+  <link rel="icon" href="assets/mask-large.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/apple.css">
+  <link rel="stylesheet" href="assets/team-aura.css">
+  <link rel="stylesheet" href="assets/mask-layout-v2.css?v=20260820a">
+  <link rel="stylesheet" href="assets/game-effects.css?v=20260814p">
+  <link rel="stylesheet" href="assets/mask-guide.css?v=20260815b">
+  <link rel="stylesheet" href="assets/mask-transparent.css?v=20260820d">
+  <link rel="stylesheet" href="assets/defeat-popup-v2.css?v=20260814g">
+  <link rel="stylesheet" href="assets/win-popup.css?v=20260815a">
+  <link rel="stylesheet" href="assets/regula-strigoi-1.css?v=20260817g">
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="eyebrow">Romanian ritual game</div>
+      <h1>Arena Strigoilor</h1>
+      <div class="tagline">joc de șpriț și voie bună</div>
+      <div class="credit">Idee de joc realizată de <a class="a" href="https://www.linkedin.com/in/andrei-catinas?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=ios_app" target="_blank" rel="noopener noreferrer">Andrei Căținaș</a> în colaborare cu <a class="g" href="https://www.linkedin.com/in/george-vladu-1233897a?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer">George Vladu</a>. Click pe nume pentru a vedea profilul de LinkedIn.</div>
+    </header>
+    <div class="layout">
+      <section class="glass">
+        <div id="status" class="status" aria-live="polite">Rândul tău</div>
+        <div id="threatBanner" class="threat-banner" role="status" aria-live="assertive" hidden></div>
+        <div id="aiTauntBanner" class="ai-taunt-banner" aria-live="polite" hidden></div>
+        <div id="board" class="board"></div>
+        <div class="reserve-title">Măștile tale</div>
+        <div id="maskInstruction" class="instructions mask-instructions"><div class="i">i</div><div class="mask-instruction-copy">Tu ești albastru. Alege o mască, apoi apasă pe pătratul în care vrei s-o muți.</div></div>
+        <div id="reserveGroups" class="reserve-groups"></div>
+        <div class="controls"><button id="hint" class="action">✦ Mutarea optimă</button><button id="analyze" class="action">Analizează</button><button id="undo" class="action">↶ Înapoi</button><button id="newgame" class="action">Joc nou</button></div>
+        <div id="hintBox" class="hint-box">„Mutarea optimă” selectează piesa recomandată și marchează cu mov căsuța recomandată. Tu confirmi mutarea.</div>
+      </section>
+      <section class="glass">
+        <div class="coach-title">Antrenor</div>
+        <div id="coach" class="coach" aria-live="polite">Selectează o mască albastră din rezervă. Piesele sunt grupate pe 3 rânduri: mari sus, medii la mijloc, mici jos.</div>
+        <div class="metrics"><div class="metric"><strong id="mine">0</strong><span>linii aproape câștigătoare albastre</span></div><div class="metric"><strong id="theirs">0</strong><span>linii aproape câștigătoare portocalii</span></div><div class="metric"><strong id="eval">0</strong><span>evaluare</span></div></div>
+        <div class="history"><div class="row head"><div>#</div><div>Tu</div><div>AI</div></div><div id="historyRows"></div></div>
+      </section>
+    </div>
+    <section class="rules">
+      <h2>Reguli de joc</h2>
+      <ol>
+        <li>Fiecare jucător are 6 piese: 2 mici, 2 medii și 2 mari. În Arena Strigoilor ele se numesc Moroi, Pricolici și Strigoi.</li>
+        <li>O linie completă de 3 piese vizibile de aceeași culoare nu câștigă instant. Ea devine o linie aproape câștigătoare și este evidențiată cu roșu.</li>
+        <li>La fiecare tură pui o piesă din rezervă sau muți o piesă proprie deja aflată pe tablă.</li>
+        <li>Poți pune o piesă din rezervă sau de pe tablă pe o căsuță liberă ori peste orice piesă vizibilă mai mică, inclusiv peste una de aceeași culoare.</li>
+        <li>O piesă mare poate acoperi una medie sau mică. Una medie poate acoperi doar una mică. O piesă mică nu poate acoperi nimic.</li>
+        <li>Poți muta doar piesa vizibilă din vârful unui teanc.</li>
+        <li>Piesele acoperite rămân în teanc și reapar când piesa de deasupra este mutată.</li>
+        <li>Orice piesă proprie vizibilă de pe tablă se poate muta la fiecare tură pe un spațiu liber sau peste o piesă mai mică. În tura de apărare, mutarea aleasă trebuie să rupă toate liniile roșii care expiră.</li>
+        <li>Adversarul are exact următoarea sa tură pentru a rupe o linie aproape câștigătoare. Dacă nu reușește, jucătorul care a format linia câștigă.</li>
+        <li>Dacă o mutare descoperă o linie aproape câștigătoare a adversarului, apărătorul acelei linii este înregistrat explicit, iar termenul expiră la următoarea lui tură, nu în momentul descoperirii.</li>
+        <li>Linia se rupe cu o piesă suficient de mare luată din rezervă sau mutată de pe tablă, așezată peste o piesă mai mică din linie. Dacă expiră mai multe linii în aceeași tură, aceeași mutare trebuie să le rupă pe toate; altfel atacatorul câștigă.</li>
+        <li>Dacă muți o piesă de pe tablă, ea este ridicată mai întâi. Dacă ridicarea descoperă în acel moment o linie completă a adversarului, adversarul câștigă imediat și piesa nu mai ajunge la destinație. Regula se aplică la orice mutare de pe tablă, nu doar la apărare.</li>
+        <li>După ce apărarea este finalizată, se verifică liniile noi create de mutare. O linie nouă formată de apărător devine și ea aproape câștigătoare, nu victorie instant.</li>
+        <li>Butonul „Mutarea optimă” nu joacă automat. Selectează piesa recomandată și evidențiază destinația cu mov.</li>
+      </ol>
+    </section>
+  </div>
+  <div id="fireworks"></div>
+  <div id="loseOverlay" class="overlay"><div class="popup"><img src="defeat.svg?v=20260814g" alt=""><h3>Ai fost învins</h3><p>Viața e grea Boss</p><button id="closePopup">Închide</button></div></div>
+  <script src="assets/mask-assets.js?v=20260820c"></script>
+  <script src="assets/regula-strigoi-1.js?v=20260820e"></script>
+  <script src="assets/apple.js?v=20260820c"></script>
+  <script src="assets/mask-guide.js?v=20260815b"></script>
+  <script src="assets/win-popup-hook.js?v=20260815a"></script>
+  <script src="assets/defeat-sticker.js?v=20260814g"></script>
+</body>
+</html>

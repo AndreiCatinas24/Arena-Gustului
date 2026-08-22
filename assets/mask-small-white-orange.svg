@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="Moroi alb portocaliu">
+  <defs>
+    <clipPath id="rightMaskFace">
+      <path d="M110 24 C148 25 176 60 178 107 C180 157 151 197 111 203 L108 203 L108 24 Z"/>
+    </clipPath>
+    <filter id="darkSideToWhite" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="1.08" intercept="0.02"/>
+        <feFuncG type="linear" slope="1.08" intercept="0.02"/>
+        <feFuncB type="linear" slope="1.08" intercept="0.02"/>
+        <feFuncA type="identity"/>
+      </feComponentTransfer>
+    </filter>
+    <linearGradient id="softWhiteBlend" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.22" stop-color="#ffffff" stop-opacity="0.13"/>
+      <stop offset="0.58" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <image href="mask-small-orange.svg" x="0" y="0" width="220" height="220" preserveAspectRatio="xMidYMid meet"/>
+
+  <g clip-path="url(#rightMaskFace)">
+    <image href="mask-small-orange.svg" x="0" y="0" width="220" height="220" preserveAspectRatio="xMidYMid meet" filter="url(#darkSideToWhite)"/>
+    <rect x="105" y="32" width="64" height="164" fill="url(#softWhiteBlend)" opacity="0.42"/>
+  </g>
+</svg>

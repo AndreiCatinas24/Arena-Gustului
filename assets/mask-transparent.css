@@ -1,0 +1,132 @@
+/* Safari-safe transparent rendering for Pricolici (M) and Moroi (S). */
+html body .piece.M::before,
+html body .piece.M::after,
+html body .piece.S::after{
+  display:none!important;
+  content:none!important;
+}
+
+html body .piece.S::before{
+  display:none!important;
+  content:none!important;
+}
+
+/* Moroi keeps the original PNG and aura. The original white half is mirrored over the dark half. */
+html body .piece.S.moroi-mirror-white::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:2!important;
+  pointer-events:none!important;
+  background-image:var(--moroi-source)!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  transform:scaleX(-1)!important;
+  transform-origin:center center!important;
+  clip-path:inset(0 50% 0 0)!important;
+  -webkit-clip-path:inset(0 50% 0 0)!important;
+  mix-blend-mode:normal!important;
+}
+
+/* Legacy pseudo badge remains disabled; Safari now gets a real DOM badge instead. */
+html body .piece.S.moroi-mirror-white::after{
+  display:none!important;
+  content:none!important;
+}
+
+html body .piece.S .moroi-size-badge{
+  position:absolute!important;
+  right:2%!important;
+  bottom:2%!important;
+  width:28%!important;
+  min-width:20px!important;
+  max-width:34px!important;
+  aspect-ratio:1/1!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  box-sizing:border-box!important;
+  border-radius:50%!important;
+  z-index:6!important;
+  pointer-events:none!important;
+  color:#fff!important;
+  background:rgba(6,14,30,.97)!important;
+  border:2px solid #4aa2ff!important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.16) inset,0 0 8px rgba(45,145,255,.95),0 0 16px rgba(0,92,255,.55)!important;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif!important;
+  font-size:clamp(12px,3.6vw,17px)!important;
+  font-weight:800!important;
+  line-height:1!important;
+  text-align:center!important;
+}
+html body .piece.S .moroi-size-badge.team-o{
+  border-color:#ff8a37!important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.16) inset,0 0 8px rgba(255,126,42,.95),0 0 16px rgba(255,75,0,.55)!important;
+}
+
+html body .piece .mask-art.team-b.size-M,
+html body .piece .mask-art.team-o.size-M,
+html body .piece .mask-art.team-b.size-S,
+html body .piece .mask-art.team-o.size-S{
+  content:normal!important;
+  mix-blend-mode:normal!important;
+  clip-path:none!important;
+  -webkit-clip-path:none!important;
+  background:transparent!important;
+  object-fit:contain!important;
+  position:relative!important;
+  z-index:1!important;
+}
+
+html body .piece .mask-art.team-b.size-M,
+html body .piece .mask-art.team-b.size-S{
+  filter:drop-shadow(0 0 6px rgba(49,145,255,.92)) drop-shadow(0 0 16px rgba(0,105,255,.58)) drop-shadow(0 7px 12px rgba(0,0,0,.34))!important;
+}
+html body .piece .mask-art.team-o.size-M,
+html body .piece .mask-art.team-o.size-S{
+  filter:drop-shadow(0 0 6px rgba(255,125,35,.92)) drop-shadow(0 0 16px rgba(255,88,0,.58)) drop-shadow(0 7px 12px rgba(0,0,0,.34))!important;
+}
+
+.reserve-row.medium .piece.M{
+  width:27%!important;
+  height:auto!important;
+  aspect-ratio:1/1!important;
+}
+.reserve-row.small .piece.S{
+  width:24%!important;
+  height:auto!important;
+  aspect-ratio:1/1!important;
+  margin-right:1.5%!important;
+}
+.reserve-row.medium .piece.M .mask-art,
+.reserve-row.small .piece.S .mask-art{
+  width:100%!important;
+  height:100%!important;
+  transform:none!important;
+}
+
+.cell .piece.M{
+  width:59%!important;
+  height:59%!important;
+  top:50%!important;
+  bottom:auto!important;
+  left:50%!important;
+  transform:translate(-50%,-50%)!important;
+}
+.cell .piece.S{
+  width:50%!important;
+  height:50%!important;
+  top:50%!important;
+  bottom:auto!important;
+  left:50%!important;
+  transform:translate(-50%,-50%)!important;
+}
+.cell .piece.M .mask-art,
+.cell .piece.S .mask-art{
+  width:100%!important;
+  height:100%!important;
+  transform:none!important;
+  transform-origin:center center!important;
+}
