@@ -1,0 +1,31 @@
+/* Safari/iPhone cleanup for food art. Corn (M) and Covrig (S) already contain their own baked aura. The legacy transparent-mask CSS applies stronger drop-shadows to M/S and can reveal the nearly-transparent image canvas as a colored square on light porcelain. */
+html body .piece .mask-art.food-art.team-b.size-M,
+html body .piece .mask-art.food-art.team-o.size-M,
+html body .piece .mask-art.food-art.team-b.size-S,
+html body .piece .mask-art.food-art.team-o.size-S{
+  background:transparent!important;
+  box-shadow:none!important;
+  filter:none!important;
+  mix-blend-mode:normal!important;
+  clip-path:none!important;
+  -webkit-clip-path:none!important;
+  isolation:auto!important;
+}
+
+/* Keep selected state readable without reintroducing a rectangular filter on the image canvas. */
+html body .piece.selected:has(.mask-art.food-art.size-M),
+html body .piece.selected:has(.mask-art.food-art.size-S){
+  filter:drop-shadow(0 0 9px rgba(49,211,155,.95))!important;
+}
+
+/* Legacy Moroi/transparent-mask layers must stay disabled for the food pieces. */
+html body .piece.S.moroi-mirror-white::before,
+html body .piece.S.moroi-mirror-white::after,
+html body .piece.S::before,
+html body .piece.S::after,
+html body .piece.M::before,
+html body .piece.M::after{
+  display:none!important;
+  content:none!important;
+  background:none!important;
+}
