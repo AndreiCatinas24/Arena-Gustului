@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="assets/pastry-showcase-compact.css?v=20260822a">
   <link rel="stylesheet" href="assets/food-art-cleanup.css?v=20260822a">
   <link rel="stylesheet" href="assets/romanian-apple-details.css?v=20260822a">
+  <link rel="stylesheet" href="assets/rules-modal.css?v=20260822a">
 </head>
 <body>
   <div class="app">
@@ -28,6 +29,7 @@
       <h1>Arena Gustului</h1>
       <div class="tagline">joc de gust și voie bună</div>
       <div class="credit">Idee de joc realizată de <a class="a" href="https://www.linkedin.com/in/andrei-catinas?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=ios_app" target="_blank" rel="noopener noreferrer">Andrei Căținaș</a> în colaborare cu <a class="r" href="https://www.instagram.com/raluca.vivico?igsi=MXZpNHVuNjd0MTd5Ng==" target="_blank" rel="noopener noreferrer" style="color:#ff9ebf;font-weight:800">Raluca.Vivico</a> și <a class="g" href="https://www.linkedin.com/in/george-vladu-1233897a?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer">George Vladu</a>. Click pe nume pentru a vedea profilele.</div>
+      <div class="rules-entry-row"><button class="rules-launch" type="button" data-open-rules>Cum se joacă?</button></div>
     </header>
     <div class="layout">
       <section class="glass">
@@ -48,7 +50,7 @@
         <div class="history"><div class="row head"><div>#</div><div>Tu</div><div>AI</div></div><div id="historyRows"></div></div>
       </section>
     </div>
-    <section class="rules">
+    <section id="rulesFullSection" class="rules rules-full-section">
       <h2>Reguli de joc</h2>
       <ol>
         <li>Fiecare jucător are 6 piese: 2 mici, 2 medii și 2 mari. În Arena Gustului ele se numesc Covrig, Corn și Merdenea.</li>
@@ -68,6 +70,29 @@
       </ol>
     </section>
   </div>
+
+  <button class="rules-fab" type="button" data-open-rules aria-label="Deschide regulamentul"><span>?</span> Regulament</button>
+
+  <div id="rulesSheetOverlay" class="rules-sheet-overlay" aria-hidden="true">
+    <section id="rulesSheet" class="rules-sheet" role="dialog" aria-modal="true" aria-labelledby="rulesSheetTitle">
+      <div class="rules-sheet-handle" aria-hidden="true"></div>
+      <div class="rules-sheet-top">
+        <div><div class="rules-sheet-kicker">Arena Gustului</div><h2 id="rulesSheetTitle">Cum se joacă în 20 secunde</h2></div>
+        <button id="rulesClose" class="rules-close" type="button" aria-label="Închide regulamentul">×</button>
+      </div>
+      <p class="rules-sheet-intro">E un X și 0 în care piesele se acoperă, se mută și pot dezvălui ce era ascuns dedesubt.</p>
+      <ol class="quick-rules">
+        <li class="quick-rule"><span class="quick-rule-num">1</span><div><strong>Alege o piesă</strong><p>Covrig = mic, Corn = mediu, Merdenea = mare. Tu joci cu albastru.</p></div></li>
+        <li class="quick-rule"><span class="quick-rule-num">2</span><div><strong>Pune sau mută</strong><p>Poți juca din vitrină sau poți muta o piesă proprie vizibilă deja aflată pe tablă.</p></div></li>
+        <li class="quick-rule"><span class="quick-rule-num">3</span><div><strong>Piesele mari le acoperă pe cele mici</strong><p>Merdeneaua poate acoperi Corn sau Covrig. Cornul poate acoperi doar Covrigul.</p></div></li>
+        <li class="quick-rule"><span class="quick-rule-num">4</span><div><strong>3 la rând nu câștigă instant</strong><p>Linia devine roșie. Adversarul are exact următoarea tură ca s-o rupă.</p></div></li>
+        <li class="quick-rule"><span class="quick-rule-num">5</span><div><strong>Nu poate rupe toate liniile? Ai câștigat.</strong><p>Blocajul se face acoperind o piesă mai mică din linia roșie cu o piesă suficient de mare.</p></div></li>
+      </ol>
+      <div class="rules-warning"><strong>Atenție:</strong> când muți o piesă de pe tablă, poți descoperi dedesubt o linie completă a adversarului. În acel caz, adversarul câștigă imediat.</div>
+      <div class="rules-sheet-actions"><button id="rulesPlay" class="rules-play" type="button">Am înțeles · Hai să joc</button><button id="rulesFull" class="rules-full" type="button">Regulament complet</button></div>
+    </section>
+  </div>
+
   <div id="fireworks"></div>
   <div id="loseOverlay" class="overlay"><div class="popup"><img src="defeat.svg?v=20260814g" alt=""><h3>Ai fost învins</h3><p>Viața e grea Boss</p><button id="closePopup">Închide</button></div></div>
   <script src="assets/mask-assets.js?v=20260820c"></script>
@@ -77,5 +102,6 @@
   <script src="assets/mask-guide.js?v=20260815b"></script>
   <script src="assets/win-popup-hook.js?v=20260815a"></script>
   <script src="assets/defeat-sticker.js?v=20260814g"></script>
+  <script src="assets/rules-modal.js?v=20260822a"></script>
 </body>
 </html>
