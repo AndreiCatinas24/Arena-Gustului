@@ -51,3 +51,25 @@
   try{seen=localStorage.getItem(storageKey)==='1';}catch(error){}
   if(!seen)setTimeout(()=>openRules({remember:true}),650);
 })();
+
+/* Analytics bootstrap. Loads Vercel Web Analytics plus Arena Gustului game-session events. */
+(()=>{
+  'use strict';
+  window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
+
+  if(!document.querySelector('script[data-arena-vercel-analytics]')){
+    const insights=document.createElement('script');
+    insights.defer=true;
+    insights.src='/_vercel/insights/script.js';
+    insights.dataset.arenaVercelAnalytics='1';
+    document.head.appendChild(insights);
+  }
+
+  if(!document.querySelector('script[data-arena-game-analytics]')){
+    const tracker=document.createElement('script');
+    tracker.defer=true;
+    tracker.src='assets/game-analytics.js?v=20260822a';
+    tracker.dataset.arenaGameAnalytics='1';
+    document.body.appendChild(tracker);
+  }
+})();
