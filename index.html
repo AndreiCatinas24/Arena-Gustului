@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta name="theme-color" content="#05080f">
-  <title>Arena Strigoilor</title>
-  <link rel="icon" href="assets/mask-large.svg" type="image/svg+xml">
+  <title>Arena Gustului</title>
+  <link rel="icon" href="assets/food/merdenea-blue.webp" type="image/webp">
   <link rel="stylesheet" href="assets/apple.css">
   <link rel="stylesheet" href="assets/team-aura.css">
   <link rel="stylesheet" href="assets/mask-layout-v2.css?v=20260820a">
@@ -15,13 +15,14 @@
   <link rel="stylesheet" href="assets/defeat-popup-v2.css?v=20260814g">
   <link rel="stylesheet" href="assets/win-popup.css?v=20260815a">
   <link rel="stylesheet" href="assets/regula-strigoi-1.css?v=20260817g">
+  <link rel="stylesheet" href="assets/food-theme.css?v=20260822a">
 </head>
 <body>
   <div class="app">
     <header class="hero">
-      <div class="eyebrow">Romanian ritual game</div>
-      <h1>Arena Strigoilor</h1>
-      <div class="tagline">joc de șpriț și voie bună</div>
+      <div class="eyebrow">Romanian food battle</div>
+      <h1>Arena Gustului</h1>
+      <div class="tagline">joc de gust și voie bună</div>
       <div class="credit">Idee de joc realizată de <a class="a" href="https://www.linkedin.com/in/andrei-catinas?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=ios_app" target="_blank" rel="noopener noreferrer">Andrei Căținaș</a> în colaborare cu <a class="g" href="https://www.linkedin.com/in/george-vladu-1233897a?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer">George Vladu</a>. Click pe nume pentru a vedea profilul de LinkedIn.</div>
     </header>
     <div class="layout">
@@ -30,15 +31,15 @@
         <div id="threatBanner" class="threat-banner" role="status" aria-live="assertive" hidden></div>
         <div id="aiTauntBanner" class="ai-taunt-banner" aria-live="polite" hidden></div>
         <div id="board" class="board"></div>
-        <div class="reserve-title">Măștile tale</div>
-        <div id="maskInstruction" class="instructions mask-instructions"><div class="i">i</div><div class="mask-instruction-copy">Tu ești albastru. Alege o mască, apoi apasă pe pătratul în care vrei s-o muți.</div></div>
+        <div class="reserve-title">Piesele tale</div>
+        <div id="maskInstruction" class="instructions mask-instructions"><div class="i">i</div><div class="mask-instruction-copy">Tu ești albastru. Alege o piesă, apoi apasă pe pătratul în care vrei s-o muți.</div></div>
         <div id="reserveGroups" class="reserve-groups"></div>
         <div class="controls"><button id="hint" class="action">✦ Mutarea optimă</button><button id="analyze" class="action">Analizează</button><button id="undo" class="action">↶ Înapoi</button><button id="newgame" class="action">Joc nou</button></div>
         <div id="hintBox" class="hint-box">„Mutarea optimă” selectează piesa recomandată și marchează cu mov căsuța recomandată. Tu confirmi mutarea.</div>
       </section>
       <section class="glass">
         <div class="coach-title">Antrenor</div>
-        <div id="coach" class="coach" aria-live="polite">Selectează o mască albastră din rezervă. Piesele sunt grupate pe 3 rânduri: mari sus, medii la mijloc, mici jos.</div>
+        <div id="coach" class="coach" aria-live="polite">Selectează o piesă albastră din rezervă. Piesele sunt grupate pe 3 rânduri: Merdenele sus, Cornuri la mijloc, Covrigi jos.</div>
         <div class="metrics"><div class="metric"><strong id="mine">0</strong><span>linii aproape câștigătoare albastre</span></div><div class="metric"><strong id="theirs">0</strong><span>linii aproape câștigătoare portocalii</span></div><div class="metric"><strong id="eval">0</strong><span>evaluare</span></div></div>
         <div class="history"><div class="row head"><div>#</div><div>Tu</div><div>AI</div></div><div id="historyRows"></div></div>
       </section>
@@ -46,7 +47,7 @@
     <section class="rules">
       <h2>Reguli de joc</h2>
       <ol>
-        <li>Fiecare jucător are 6 piese: 2 mici, 2 medii și 2 mari. În Arena Strigoilor ele se numesc Moroi, Pricolici și Strigoi.</li>
+        <li>Fiecare jucător are 6 piese: 2 mici, 2 medii și 2 mari. În Arena Gustului ele se numesc Covrig, Corn și Merdenea.</li>
         <li>O linie completă de 3 piese vizibile de aceeași culoare nu câștigă instant. Ea devine o linie aproape câștigătoare și este evidențiată cu roșu.</li>
         <li>La fiecare tură pui o piesă din rezervă sau muți o piesă proprie deja aflată pe tablă.</li>
         <li>Poți pune o piesă din rezervă sau de pe tablă pe o căsuță liberă ori peste orice piesă vizibilă mai mică, inclusiv peste una de aceeași culoare.</li>
@@ -68,6 +69,7 @@
   <script src="assets/mask-assets.js?v=20260820c"></script>
   <script src="assets/regula-strigoi-1.js?v=20260820e"></script>
   <script src="assets/apple.js?v=20260820c"></script>
+  <script src="assets/food-theme.js?v=20260822a"></script>
   <script src="assets/mask-guide.js?v=20260815b"></script>
   <script src="assets/win-popup-hook.js?v=20260815a"></script>
   <script src="assets/defeat-sticker.js?v=20260814g"></script>
