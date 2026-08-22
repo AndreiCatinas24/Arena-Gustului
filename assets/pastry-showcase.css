@@ -1,0 +1,161 @@
+/* Literal pastry display case for Arena Gustului. Visual only: game logic and piece interactions stay unchanged. */
+.reserve-title{
+  margin:24px 2px 10px!important;
+  color:#fff5df!important;
+  letter-spacing:-.035em;
+}
+.reserve-title::after{
+  content:"PATISERIE • SELECȚIA TA"!important;
+  display:block!important;
+  margin-top:5px!important;
+  color:#cdb387!important;
+  font-size:10px!important;
+  font-weight:850!important;
+  letter-spacing:.18em!important;
+}
+
+/* One continuous glass cabinet around all three product shelves. */
+.reserve-groups{
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:0!important;
+  padding:12px 10px 15px!important;
+  overflow:hidden!important;
+  border-radius:30px!important;
+  border:1px solid rgba(239,202,139,.52)!important;
+  background:
+    linear-gradient(112deg,rgba(255,255,255,.075) 0%,rgba(255,255,255,.018) 18%,transparent 35%),
+    radial-gradient(ellipse at 50% 105%,rgba(230,171,74,.15),transparent 52%),
+    linear-gradient(180deg,rgba(17,20,25,.90),rgba(6,9,13,.96))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.13),
+    inset 1px 0 0 rgba(255,255,255,.035),
+    inset -1px 0 0 rgba(255,230,188,.045),
+    0 0 0 1px rgba(83,57,25,.28),
+    0 18px 42px rgba(0,0,0,.28)!important;
+  backdrop-filter:blur(18px) saturate(1.08)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.08)!important;
+}
+
+/* Glass highlight / reflection on the cabinet door. */
+.reserve-groups::before{
+  content:""!important;
+  position:absolute!important;
+  inset:5px 9px auto 9px!important;
+  height:36%!important;
+  z-index:6!important;
+  pointer-events:none!important;
+  border-radius:23px 23px 50% 50%!important;
+  background:
+    linear-gradient(108deg,rgba(255,255,255,.095),rgba(255,255,255,.018) 24%,transparent 43%),
+    linear-gradient(180deg,rgba(255,255,255,.055),transparent 74%)!important;
+  opacity:.78!important;
+}
+.reserve-groups::after{
+  content:""!important;
+  position:absolute!important;
+  inset:7px!important;
+  z-index:7!important;
+  pointer-events:none!important;
+  border-radius:23px!important;
+  border:1px solid rgba(255,245,222,.075)!important;
+  box-shadow:inset 0 0 28px rgba(255,216,145,.025)!important;
+}
+
+/* Each category is now an internal shelf, not a standalone card. */
+.reserve-group{
+  position:relative!important;
+  z-index:2!important;
+  margin:0!important;
+  padding:15px 14px 20px!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.reserve-group + .reserve-group{
+  border-top:1px solid rgba(234,193,126,.22)!important;
+}
+.reserve-group::before{
+  content:""!important;
+  position:absolute!important;
+  left:4%!important;
+  right:4%!important;
+  bottom:4px!important;
+  height:34px!important;
+  z-index:-1!important;
+  border-radius:50%!important;
+  pointer-events:none!important;
+  background:radial-gradient(ellipse,rgba(225,168,74,.22),transparent 67%)!important;
+  filter:blur(12px)!important;
+}
+.reserve-group::after{
+  content:""!important;
+  position:absolute!important;
+  left:4%!important;
+  right:4%!important;
+  bottom:6px!important;
+  height:3px!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,transparent,rgba(192,133,58,.25),rgba(255,221,158,.84),rgba(192,133,58,.25),transparent)!important;
+  box-shadow:0 4px 13px rgba(230,168,70,.22)!important;
+}
+
+.reserve-head{
+  position:relative!important;
+  z-index:8!important;
+  margin:0 2px 6px!important;
+  padding-bottom:3px!important;
+}
+.reserve-head strong{
+  color:#fff9eb!important;
+  font-size:21px!important;
+  font-weight:880!important;
+  text-shadow:0 2px 12px rgba(0,0,0,.34)!important;
+}
+.reserve-head span{
+  color:#dfc395!important;
+  font-weight:780!important;
+}
+
+.reserve-row{
+  position:relative!important;
+  z-index:8!important;
+  min-height:112px!important;
+  padding:0 8px 7px!important;
+  gap:18px!important;
+  justify-content:center!important;
+  align-items:center!important;
+}
+.reserve-row .piece{
+  transition:transform .16s ease,filter .16s ease!important;
+}
+.reserve-row .piece:active{
+  transform:scale(.96)!important;
+}
+.reserve-row.large .L{width:36%!important;max-width:150px!important}
+.reserve-row.medium .M{width:32%!important;max-width:134px!important}
+.reserve-row.small .S{width:29%!important;max-width:118px!important}
+
+/* Small brass feet make the case read as a physical display cabinet. */
+.reserve-groups{
+  margin-bottom:5px!important;
+}
+
+@media(max-width:390px){
+  .reserve-groups{padding:10px 8px 13px!important;border-radius:27px!important}
+  .reserve-group{padding:13px 10px 18px!important}
+  .reserve-row{min-height:100px!important;gap:11px!important;padding-left:3px!important;padding-right:3px!important}
+  .reserve-head strong{font-size:20px!important}
+  .reserve-row.large .L{width:38%!important}
+  .reserve-row.medium .M{width:35%!important}
+  .reserve-row.small .S{width:31%!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .reserve-row .piece{transition:none!important}
+}
