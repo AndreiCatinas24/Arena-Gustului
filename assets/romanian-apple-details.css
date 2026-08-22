@@ -1,0 +1,111 @@
+/* Romanian details, kept deliberately minimal and Apple-like. */
+.board{
+  position:relative!important;
+  isolation:isolate;
+  border-color:rgba(218,173,104,.24)!important;
+}
+
+/* A tiny Romanian tricolor signature on the playing surface. */
+.board::before{
+  content:"";
+  position:absolute;
+  top:5px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:10;
+  width:42px;
+  height:3px;
+  border-radius:999px;
+  pointer-events:none;
+  background:linear-gradient(90deg,#1769c2 0 33.333%,#f2c94c 33.333% 66.666%,#c93a45 66.666% 100%);
+  box-shadow:0 0 12px rgba(255,255,255,.08),0 2px 10px rgba(0,0,0,.25);
+  opacity:.88;
+}
+
+/* Plate numbers become small cobalt ceramic medallions: high contrast, with a very fine warm-metal rim. */
+.cell .num{
+  left:7%!important;
+  top:6%!important;
+  z-index:12!important;
+  width:25px;
+  height:25px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border-radius:50%;
+  color:#fffdf7!important;
+  background:
+    radial-gradient(circle at 32% 25%,rgba(255,255,255,.18),transparent 28%),
+    linear-gradient(145deg,#143e72,#0b2446 68%,#07182f)!important;
+  border:1px solid rgba(238,203,144,.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.16),
+    0 0 0 1px rgba(6,15,28,.55),
+    0 4px 10px rgba(0,0,0,.34),
+    0 0 12px rgba(31,104,190,.16);
+  text-shadow:0 1px 2px rgba(0,0,0,.5)!important;
+  font-size:12px!important;
+  line-height:1!important;
+  font-weight:900!important;
+  font-variant-numeric:tabular-nums;
+}
+
+/* Tiny tricolor enamel mark: enough to read Romanian without turning the UI into folk decoration. */
+.cell .num::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-3px;
+  transform:translateX(-50%);
+  width:12px;
+  height:2px;
+  border-radius:99px;
+  background:linear-gradient(90deg,#1769c2 0 33.333%,#f2c94c 33.333% 66.666%,#c93a45 66.666% 100%);
+  box-shadow:0 1px 2px rgba(0,0,0,.28);
+}
+
+/* Stack count gets the same visual language so it never disappears on an ivory plate. */
+.cell .stack{
+  right:7%!important;
+  top:7%!important;
+  z-index:12!important;
+  min-width:26px;
+  height:21px;
+  display:grid;
+  place-items:center;
+  padding:0 6px;
+  border-radius:999px;
+  color:#fff7e7!important;
+  background:rgba(11,24,43,.92)!important;
+  border:1px solid rgba(226,190,128,.72);
+  box-shadow:inset 0 1px rgba(255,255,255,.10),0 3px 8px rgba(0,0,0,.28);
+  text-shadow:0 1px 2px rgba(0,0,0,.45)!important;
+  font-size:10px!important;
+  line-height:1!important;
+  font-weight:900!important;
+}
+
+/* A restrained geometric stitch-like rim inside the board, inspired by Romanian woven borders. */
+.board::after{
+  content:"";
+  position:absolute;
+  inset:4px;
+  z-index:0;
+  pointer-events:none;
+  border-radius:22px;
+  border:1px solid rgba(225,191,130,.08);
+  background:
+    linear-gradient(45deg,transparent 47%,rgba(225,191,130,.11) 48% 52%,transparent 53%) 0 0/12px 12px,
+    linear-gradient(-45deg,transparent 47%,rgba(225,191,130,.08) 48% 52%,transparent 53%) 0 0/12px 12px;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  padding:5px;
+  opacity:.55;
+}
+
+@media(max-width:390px){
+  .cell .num{width:23px;height:23px;left:5%!important;top:5%!important;font-size:11px!important}
+  .cell .stack{right:5%!important;top:6%!important;min-width:24px;height:20px;padding:0 5px}
+  .board::before{width:36px;top:4px}
+}
