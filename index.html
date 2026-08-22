@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="assets/defeat-popup-v2.css?v=20260814g">
   <link rel="stylesheet" href="assets/win-popup.css?v=20260815a">
   <link rel="stylesheet" href="assets/regula-strigoi-1.css?v=20260817g">
-  <link rel="stylesheet" href="assets/food-theme.css?v=20260822b">
+  <link rel="stylesheet" href="assets/food-theme.css?v=20260822c">
 </head>
 <body>
   <div class="app">
@@ -31,15 +31,15 @@
         <div id="threatBanner" class="threat-banner" role="status" aria-live="assertive" hidden></div>
         <div id="aiTauntBanner" class="ai-taunt-banner" aria-live="polite" hidden></div>
         <div id="board" class="board"></div>
-        <div class="reserve-title">Piesele tale</div>
-        <div id="maskInstruction" class="instructions mask-instructions"><div class="i">i</div><div class="mask-instruction-copy">Tu ești albastru. Alege o piesă, apoi apasă pe pătratul în care vrei s-o muți.</div></div>
+        <div class="reserve-title">Vitrina ta</div>
+        <div id="maskInstruction" class="instructions mask-instructions"><div class="i">i</div><div class="mask-instruction-copy">Tu ești albastru. Alege o piesă din vitrină, apoi apasă pe farfuria în care vrei s-o muți.</div></div>
         <div id="reserveGroups" class="reserve-groups"></div>
         <div class="controls"><button id="hint" class="action">✦ Mutarea optimă</button><button id="analyze" class="action">Analizează</button><button id="undo" class="action">↶ Înapoi</button><button id="newgame" class="action">Joc nou</button></div>
-        <div id="hintBox" class="hint-box">„Mutarea optimă” selectează piesa recomandată și marchează cu mov căsuța recomandată. Tu confirmi mutarea.</div>
+        <div id="hintBox" class="hint-box">„Mutarea optimă” selectează piesa recomandată și marchează cu mov farfuria recomandată. Tu confirmi mutarea.</div>
       </section>
       <section class="glass">
         <div class="coach-title">Antrenor</div>
-        <div id="coach" class="coach" aria-live="polite">Selectează o piesă albastră din rezervă. Piesele sunt grupate pe 3 rânduri: Merdenele sus, Cornuri la mijloc, Covrigi jos.</div>
+        <div id="coach" class="coach" aria-live="polite">Selectează o piesă albastră din vitrină. Piesele sunt grupate pe 3 rânduri: Merdenele sus, Cornuri la mijloc, Covrigi jos.</div>
         <div class="metrics"><div class="metric"><strong id="mine">0</strong><span>linii aproape câștigătoare albastre</span></div><div class="metric"><strong id="theirs">0</strong><span>linii aproape câștigătoare portocalii</span></div><div class="metric"><strong id="eval">0</strong><span>evaluare</span></div></div>
         <div class="history"><div class="row head"><div>#</div><div>Tu</div><div>AI</div></div><div id="historyRows"></div></div>
       </section>
